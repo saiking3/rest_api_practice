@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import Books
 
+"""
+#----Serializers------#
 class BooksSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
     description = serializers.CharField(max_length=200)
@@ -17,3 +19,10 @@ class BooksSerializer(serializers.Serializer):
         instance.description = validated_data.get('description', instance.description)
         instance.category = validated_data.get('category', instance.category)
         instance.reference_no = validated_data.get('reference_no', instance.reference_no)
+"""
+
+#----Model Serializers----#
+class BooksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Books
+        fields = "__all__"
